@@ -12,17 +12,16 @@ export class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
         this.search = this.search.bind( this );
         this.handleTermChange = this.handleTermChange.bind( this );
         this.searchClickHandler = this.searchClickHandler.bind(this);
+        if ( localStorage.getItem( 'searchTerm' ) )
+        {
+            this.setState( { term: localStorage.getItem( 'searchTerm' )! } );
+        }
     }
     enterHandler ( e: KeyboardEvent<HTMLInputElement> ) {
         if ( e.key === 'Enter' )
         {
             const search = document.querySelector( 'Button, .SearchButton' ) as HTMLButtonElement;
             search.click();
-        }
-    }
-    componentWillMount(){
-        if(localStorage.getItem('searchTerm')){
-            this.setState({term: localStorage.getItem('searchTerm')!});
         }
     }
     componentDidMount(){
