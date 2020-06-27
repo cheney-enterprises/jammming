@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+
+
+
+<script>const circle=document.querySelectorAll('.circle');
+
+
+                circle.forEach((el,i)=> {
+                        let isAnimating = false;
+
+                        el.addEventListener('mouseenter', function(e) {
+                                el.style.cursor="pointer";
+                            }
+
+                        );
+
+                        el.addEventListener('click', function(e) {
+                                const play=e.target.previousElementSibling.previousElementSibling;
+                                const pause=e.target.previousElementSibling;
+                                if( !isAnimating ) {
+                                    isAnimating=true;
+                                    el.style.animation=`rotate 5s linear 1 running`;
+                                    play.style.display='none';
+                                    pause.style.display='';
+                                }
+
+                                else {
+
+                                    isAnimating=false;
+                                    el.style.animation=`rotate 5s linear 1 paused`;
+                                    play.style.display='';
+                                    pause.style.display='none';
+                                }
+                            }
+
+                        );
+                    }
+
+                );
+
+                </script></body></html>
